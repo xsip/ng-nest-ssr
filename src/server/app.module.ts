@@ -6,7 +6,6 @@ import {AngularMiddleware} from './angular.middleware';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
-
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -19,7 +18,6 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    console.log('Registering consumer!');
     consumer
       .apply(AngularMiddleware)
       .forRoutes('*')
